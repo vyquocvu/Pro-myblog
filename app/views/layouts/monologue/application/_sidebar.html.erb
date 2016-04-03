@@ -1,0 +1,8 @@
+<% if Monologue::Config.sidebar %>
+<aside class="sidebar four columns">
+    <% render partial: "layouts/monologue/application/social_icons" %>
+   <% Monologue::Config.sidebar.each do |ext| %>
+     <%= render partial: "monologue/sidebar/#{ext}" %>
+   <% end %>
+</aside>
+<% end %>

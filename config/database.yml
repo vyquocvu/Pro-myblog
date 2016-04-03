@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username: 'adminNp36eyW'
+  password: 'LUMN_-Y3MCX7'
+  
+development:
+  <<: *default
+  database: blog
+test:
+  <<: *default
+  database: blog
+
+production:
+  <<: *default
+  database: blog
+  username: 'adminNp36eyW'
+  password: 'LUMN_-Y3MCX7'

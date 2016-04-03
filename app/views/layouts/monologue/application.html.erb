@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <%= render 'layouts/monologue/application/head' %> 
+</head>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Navigation -->
+  <%= render 'layouts/monologue/application/header' %>
+  <div class="row"  id="content" >
+   <div class="col-sm-12">
+     <div class="col-sm-9">
+      <div class="content twelve columns">
+        <% flash.each do |name, msg| %>
+          <div class="flash-notice">
+            <%= msg %>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+     </div>
+     <div class="col-sm-3">
+        <%= render 'layouts/monologue/application/sidebar' %>
+     </div>
+    </div>
+   </div>
+  <% if content_for?(:footer) %>
+    <footer>
+      <%= yield :footer %>
+    </footer>
+  <% end %>
+  <%= render 'layouts/monologue/application/disqus' %>
+  <%= render 'layouts/monologue/application/gauge_analytics' %>
+  <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; goka 2016</p>
+        </div>
+    </footer>
+</body>
+</html>
