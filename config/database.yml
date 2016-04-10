@@ -1,19 +1,20 @@
 
-default: &default
+mysql: &mysql
   adapter: mysql2
+  database: "<%=ENV['OPENSHIFT_APP_NAME']%>"
+  username: "<%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%>"
+  password: "<%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%>"
+  host:     <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
+  port:     <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
+defaults: &defaults
+  pool: 5
+  timeout: 5000
   encoding: utf8
-  username: 'adminNp36eyW'
-  password: 'LUMN_-Y3MCX7'
-  
-development:
-  <<: *default
-  database: blog
-test:
-  <<: *default
-  database: blog
+  <<: *<%= ENV['RAILS_DB'] || "sqlite" %>
 
+development:
+  <<: *defaults
+test: &test
+  <<: *defaults
 production:
-  <<: *default
-  database: blog
-  username: 'adminNp36eyW'
-  password: 'LUMN_-Y3MCX7'
+  <<: *defaults
