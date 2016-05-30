@@ -1,7 +1,20 @@
-development:
+
+default: &default
   adapter: postgresql
   encoding: unicode
-  database: blog_development
   pool: 5
-  username: blog
-  password:
+  username: <%= ENV['USERNAME'] %>
+  password: <%= ENV['PASSWORD'] %>
+  host:     <%= ENV['IP'] %>
+
+development:
+  <<: *default
+  database: noteme_development
+
+test:2
+  <<: *default
+  database: noteme_test
+
+production:
+  <<: *default
+  database: noteme_production
