@@ -4,6 +4,7 @@ gem 'monologue'
 gem "font-awesome-rails"
 gem 'mysql2'
 gem 'rake'
+gem 'turbo-sprockets-rails3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
